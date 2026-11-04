@@ -5,7 +5,8 @@ module DirectSms
   class Message
     include HTTParty
 
-    base_uri "api.directsms.com.au"
+    # DirectSMS only accepts HTTPS; plain HTTP on port 80 is refused.
+    base_uri "https://api.directsms.com.au"
 
     attr_accessor :message, :to, :max_segments, :type, :message_id
 
